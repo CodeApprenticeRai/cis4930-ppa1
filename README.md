@@ -92,8 +92,12 @@ and return a report of it.
 See 'Quick Start' section for setup instructions. 
 
 ## Test Results
-   * Screenshots / Report goes here.
-   * Screencast of RGR of Test First Proces for Each function goes here
-   * Screencast of command line application goes here 
+
+Screencasts of the RGR process on all 4 functions can be found in the resepctive files named 'functionName_RRG'.
+* Retirement_RGR.mp4
+* EmailVerfier_RGR.mp4
+* ShortestDistance_RGR.mp4
+* SplitTheTip_RGR.mp4
+
 ## Test Coverage Report
 
