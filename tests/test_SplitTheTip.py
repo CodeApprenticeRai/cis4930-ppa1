@@ -2,7 +2,7 @@ import pytest
 from .. import SplitTheTip
 
 '''
-Conditions: 
+Conditions:
     * Should accept: int age, float annual salary, float percentage saved
     * Should return what age savings goal will be met.
 '''

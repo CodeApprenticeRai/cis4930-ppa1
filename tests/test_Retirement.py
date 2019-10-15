@@ -1,8 +1,8 @@
 import pytest
-from .. import Retirement
+from cis4930_ppa1 import Retirement
 
 '''
-Conditions: 
+Conditions:
     * Should accept: int age, float annual salary, float percentage saved
     * Should return what age savings goal will be met.
 '''

@@ -1,5 +1,5 @@
 import math
-from utilities import isfloat
+from .utilities import isfloat
 
 class SplitTheTip:
     def command_line_routine(self):

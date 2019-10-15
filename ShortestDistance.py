@@ -2,7 +2,7 @@
     * map all meaningless input to infinity
     * function returns distance based on distance formula
 '''
-from utilities import isfloat
+from .utilities import isfloat
 import math
 
 class ShortestDistance:

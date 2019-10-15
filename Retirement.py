@@ -1,4 +1,4 @@
-from utilities import isfloat
+from .utilities import isfloat
 
 class Retirement:
     def command_line_routine(self):

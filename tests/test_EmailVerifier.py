@@ -1,8 +1,8 @@
 import pytest
-from .. import EmailVerifier
+from cis4930_ppa1 import EmailVerifier
 
 '''
-Conditions: 
+Conditions:
     * Should accept: int age, float annual salary, float percentage saved
     * Should return what age savings goal will be met.
 '''
