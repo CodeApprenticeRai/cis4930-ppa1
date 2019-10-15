@@ -1,5 +1,5 @@
 import pytest
-from cis4930_ppa1 import ShortestDistance
+from .. import ShortestDistance
 
 '''
 Conditions:
