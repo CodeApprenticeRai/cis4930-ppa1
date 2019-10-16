@@ -7,7 +7,7 @@
 '''
     * prompts user to select a function to execute
     * select another function
-    * allow user to gracefully exit   
+    * allow user to gracefully exit
 '''
 
 from Retirement import Retirement
@@ -41,11 +41,11 @@ class Assignment1:
 
     def main(self):
         while(True):
-            print("{} Welcome to Professional Practice Assignment 1 Function Tester! {}".format("*"*5, "*"*5))
+            print("{} Welcome to Professional Practice Assignment 1 Function Tester! {}\n\n".format("*"*5, "*"*5))
             print("Please select an action from the below list: ")
             print("\t1. Execute a Function","\t2. Exit", sep="\n")
             choice = input("Choice: ")
-
+            print("\n\n")
             if ( ( not choice.isdigit() ) or ( int(choice) > 2 ) or ( int(choice) <= 0 ) ):
                 print("Please enter an integer corresponding to the choices shown")
 

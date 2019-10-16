@@ -1,4 +1,10 @@
-from .utilities import isfloat
+import sys
+
+sys.path.append(".")
+
+import re, pymongo, time, pprint
+
+from utilities import isfloat
 
 class Retirement:
     def command_line_routine(self):
