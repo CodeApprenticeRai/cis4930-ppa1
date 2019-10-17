@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'nikolaik/python-nodejs:python3.6-nodejs12-alpine'
+            image 'nikolaik/python-nodejs:python3.7-nodejs12-alpine'
             args '-p 3001:3001'
         }
     }
@@ -26,3 +26,4 @@ pipeline {
         }
     }
 }
+npm
