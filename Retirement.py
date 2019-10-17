@@ -68,7 +68,7 @@ class Retirement:
         print("Your retirement age will be {}\n\n".format(retirement_age))
         return None
 
-    def calculate_when_savings_goal_reached(self, starting_age, salary, percentage_saved, savings_goal, db=None):
+    def calculate_when_savings_goal_reached(self, starting_age, salary, percentage_saved, savings_goal, db=None, mock=None, stub=None):
         capital = 0
         age = starting_age
         while ( (age < 100) and (capital < savings_goal)):
@@ -95,5 +95,11 @@ class Retirement:
         }
 
         collection.insert_one(data)
+
+        if mock:
+            mock.store( "transactions", [data] )
+
+        if stub:
+            stub.store( "solution_that_would_have_been_sent_to_db", data["solution"] )
 
         return age

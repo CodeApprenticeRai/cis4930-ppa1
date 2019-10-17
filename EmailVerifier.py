@@ -27,12 +27,12 @@ class EmailVerifier:
         print("The email string is{}valid.\n\n".format(" " if self.verify_email(email_string) else " not "))
         return None
 
-    def verify_email(self, email, db):
+    def verify_email(self, email, db, mock=None, stub=None):
 
         pattern = re.compile("[A-Za-z!$%*\+\-\=?^_{|}~]+[A-Za-z!$%*\+\-\=?^_{|}~.]*[A-Za-z!$%*\+\-\=?^_{|}~+]@[A-Za-z]*\.[A-Za-z]*")
         result  = True if pattern.fullmatch(email) else False
-        current_unix_time = int( time.time() )
 
+        current_unix_time = int( time.time() )
         if ( type(db) == type(None) ):
             db_client = pymongo.MongoClient("mongodb://localhost:27017/")
             db = db_client["function_solution_records"]
@@ -47,6 +47,12 @@ class EmailVerifier:
             },
             "solution": result
         }
+
+        if mock:
+            mock.store( "transactions", [data] )
+
+        if stub:
+            stub.store( "solution_that_would_have_been_sent_to_db", data["solution"] )
 
         collection.insert_one(data)
 

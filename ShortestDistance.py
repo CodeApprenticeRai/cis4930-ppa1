@@ -2,6 +2,10 @@
     * map all meaningless input to infinity
     * function returns distance based on distance formula
 '''
+import sys
+sys.path.append(".")
+
+
 from utilities import isfloat
 import math
 
