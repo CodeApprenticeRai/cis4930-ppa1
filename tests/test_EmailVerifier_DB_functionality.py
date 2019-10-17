@@ -30,7 +30,7 @@ def test7(applet=EmailVerifier.EmailVerifier(), db=None, mock=None):
     assert stub.retrieve( "solution_that_would_have_been_sent_to_db" )  == stub.retrieve( "stub_solution3")
 
 
-db_client = pymongo.MongoClient("mongodb://localhost:27017/")
+db_client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
 db = db_client["function_solution_records_fake_db"]
 
 mock = DatabaseDouble.DatabaseDouble()

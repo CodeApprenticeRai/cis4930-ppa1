@@ -29,7 +29,7 @@ def test4(applet=EmailVerifier.EmailVerifier(), db=None):
 
 applet = EmailVerifier.EmailVerifier()
 
-db_client = pymongo.MongoClient("mongodb://localhost:27017/")
+db_client = pymongo.MongoClient("mongodb://127.0.0.1:27017/")
 db = db_client["function_solution_records_fake_db"]
 
 test1(applet, db)
