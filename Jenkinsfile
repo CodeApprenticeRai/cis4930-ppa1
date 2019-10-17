@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3-alpine'
+            image 'nikolaik/python-nodejs:python3.6-nodejs12-alpine'
             args '-p 3001:3001'
         }
     }
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'echo App \'Delivered\'. ' 
+                sh 'echo App \'Delivered\'. '
             }
         }
     }
