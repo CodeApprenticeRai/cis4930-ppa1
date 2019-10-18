@@ -16,10 +16,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'rm /var/lib/mongodb/mongod.lock'
-                sh 'mongod --repair'
-                sh 'service mongodb start'
-                sh 'service mongodb status'
                 sh 'pytest'
             }
         }
