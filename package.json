@@ -1,0 +1,28 @@
+{
+  "name": "cis4930_ppa1",
+  "version": "1.0.0",
+  "description": "Professional Practice Assignment: objective is to become familiar with the Continuous Delivery Process",
+  "main": "main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeApprenticeRai/cis4930-ppa1.git"
+  },
+  "author": "Taré Gaskin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeApprenticeRai/cis4930-ppa1/issues"
+  },
+  "homepage": "https://github.com/CodeApprenticeRai/cis4930-ppa1#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mocha": "^6.2.1",
+    "mongodb": "^3.3.3",
+    "request": "^2.88.0"
+  }
+}
