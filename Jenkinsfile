@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pip install --no-cache-dir -r requirements.txt'
+                sh 'apk add mongodb'
                 sh 'apk add openrc'
                 sh 'mkdir /data/'
                 sh 'mkdir /data/db/'
