@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'python:3-alpine'
+            image 'nikolaik/python-nodejs:python3.6-nodejs12-alpine'
             args '-p 3001:3001'
         }
     }
@@ -12,12 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pip install --no-cache-dir -r requirements.txt'
+                sh 'apk add openrc'
+                sh 'mkdir /data/'
+                sh 'mkdir /data/db/'
+                sh 'mongod --fork --logpath /var/log/mongodb.log'
             }
         }
         stage('Test') {
             steps {
-                sh 'service mongod start'
-                sh 'rm /var/lib/mongodb/mongod.lock'
                 sh 'pytest'
             }
         }
