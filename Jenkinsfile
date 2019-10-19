@@ -11,7 +11,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pip install --no-cache-dir -r requirements.txt'
+                sh 'apk update'
+                sh 'apk add python3'
+                sh 'pip3 install --no-cache-dir -r requirements.txt'
                 sh 'apk add openrc'
                 sh 'mkdir /data/'
                 sh 'mkdir /data/db/'
