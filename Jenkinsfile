@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'nikolaik/python-nodejs:python3.6-nodejs12-alpine'
+            image 'alpine:edge'
             args '-p 3001:3001'
         }
     }
