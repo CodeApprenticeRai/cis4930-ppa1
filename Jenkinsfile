@@ -11,6 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'apk update'
                 sh 'apk add mongodb'
                 sh 'pip install --no-cache-dir -r requirements.txt'
                 sh 'apk add openrc'
