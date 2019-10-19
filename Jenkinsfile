@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'nikolaik/python-nodejs:python3.6-nodejs12-alpine'
+            image 'alpine: edge'
             args '-p 3001:3001'
         }
     }
@@ -11,7 +11,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pip install --no-cache-dir -r requirements.txt'
+                sh 'apk add python3'
+                sh 'pip3 install --no-cache-dir -r requirements.txt'
                 sh 'apk add mongodb'
                 sh 'apk add openrc'
                 sh 'mkdir /data/'
