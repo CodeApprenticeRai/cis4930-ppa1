@@ -11,9 +11,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories'
                 sh 'apk update'
                 sh 'apk add --no-cache mongodb'
+                sh 'apk add python3'
                 sh 'pip3 install --no-cache-dir -r requirements.txt'
                 sh 'apk add openrc'
                 sh 'mkdir /data/'
