@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'alpine:edge'
+            image 'jenkins/jenkins:lts-alpine'
             args '-p 3001:3001'
         }
     }
