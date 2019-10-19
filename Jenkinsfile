@@ -9,7 +9,7 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('Build') {
+        stage('Build Python App') {
             steps {
                 sh 'apk update'
                 sh 'apk add mongodb'
@@ -21,14 +21,25 @@ pipeline {
                 sh 'mongod --fork --logpath /var/log/mongodb.log'
             }
         }
-        stage('Test') {
+        stage('Test Python App') {
             steps {
                 sh 'pytest'
             }
         }
+        stage('Build Web Server'){
+          steps {
+            sh 'npm install'
+            sh 'npm start'
+          }
+        }
+        stage('Test Web server') {
+            steps {
+                sh 'npm test'
+            }
+        }
         stage('Deliver') {
             steps {
-                sh 'echo App \'Delivered\'. '
+                sh 'echo PPA Application Delivered. 4 / 4 Phases Complete. '
             }
         }
     }

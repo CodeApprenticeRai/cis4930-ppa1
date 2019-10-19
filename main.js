@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3003
+const port = process.env.NODE_ENV == 'test' ? 3004 : 3003;
 
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
