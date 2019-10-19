@@ -47,6 +47,10 @@ class EmailVerifier:
             },
             "solution": result
         }
+        
+        # I would've elevated this to avoid redundant computation, but not going to throw of my DB testing functionality above
+        if ( collection.find_one({ "parameters": { "email": email } }) == None ): #avoid duplicate records
+            collection.insert_one(data)
 
         if mock:
             mock.store( "transactions", [data] )
@@ -54,6 +58,18 @@ class EmailVerifier:
         if stub:
             stub.store( "solution_that_would_have_been_sent_to_db", data["solution"] )
 
-        collection.insert_one(data)
+
 
         return result
+
+
+
+if __name__ == "__main__":
+    verifier = EmailVerifier()
+    db_client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = db_client["function_solution_records"]
+
+    email_argument = sys.argv[1]
+
+    print( verifier.verify_email( email_argument, db ), sep="", end="" )
+    sys.stdout.flush()

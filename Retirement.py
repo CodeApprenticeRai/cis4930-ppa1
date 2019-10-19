@@ -93,13 +93,30 @@ class Retirement:
             },
             "solution": age
         }
-
-        collection.insert_one(data)
-
+    
         if mock:
             mock.store( "transactions", [data] )
 
         if stub:
             stub.store( "solution_that_would_have_been_sent_to_db", data["solution"] )
 
+
+
+        if ( collection.find_one( data["parameters"] ) == None ): #avoid duplicate records
+            collection.insert_one(data)
+
         return age
+
+if __name__ == "__main__":
+    retirement_calculator = Retirement()
+    db_client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = db_client["function_solution_records"]
+
+    starting_age = int(sys.argv[1])
+    salary = float(sys.argv[2])
+    percentage_saved = float(sys.argv[3])
+    savings_goal = float(sys.argv[4])
+
+
+    print( retirement_calculator.calculate_when_savings_goal_reached(starting_age, salary, percentage_saved, savings_goal, db ), sep="", end="" )
+    sys.stdout.flush()
