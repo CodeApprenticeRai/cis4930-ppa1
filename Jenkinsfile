@@ -30,7 +30,7 @@ pipeline {
           steps {
             sh 'apk add npm'
             sh 'apk add yarn'
-            sh 'yarn install'
+            sh 'npm install --no-bin-links'
             sh 'npm start'
           }
         }
