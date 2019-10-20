@@ -32,17 +32,19 @@ pipeline {
             sh 'apk add yarn'
             sh 'npm install -g npm@5.7.1'
             sh 'yarn install --no-bin-links'
-            sh 'npm start'
+
           }
         }
         stage('Test Web server') {
             steps {
-                sh 'npm test'
+                sh 'npx mocha'
             }
         }
         stage('Deliver') {
             steps {
-                sh 'echo PPA Application Delivered. 4 / 4 Phases Complete. '
+                sh 'echo PPA Application Delivered. 4 / 4 Phases Complete.'
+                sh 'npm start'
+
             }
         }
     }
