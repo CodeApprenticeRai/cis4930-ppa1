@@ -32,19 +32,18 @@ pipeline {
             sh 'apk add yarn'
             sh 'npm install -g npm@5.7.1'
             sh 'yarn install --no-bin-links'
-
+            sh 'npm install forever -g'
           }
         }
         stage('Test Web server') {
             steps {
-                sh 'npx mocha'
+                sh 'npx mocha --exit'
             }
         }
         stage('Deliver') {
             steps {
+                sh 'forever start main.js'
                 sh 'echo PPA Application Delivered. 4 / 4 Phases Complete.'
-                sh 'npm start'
-
             }
         }
     }
