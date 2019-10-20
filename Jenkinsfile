@@ -28,6 +28,7 @@ pipeline {
         }
         stage('Build Web Server'){
           steps {
+            sh 'apk add npm'
             sh 'npm install'
             sh 'npm start'
           }
