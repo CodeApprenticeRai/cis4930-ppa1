@@ -29,7 +29,8 @@ pipeline {
         stage('Build Web Server'){
           steps {
             sh 'apk add npm'
-            sh 'npm install --no-optional'
+            sh 'apk add yarn'
+            sh 'yarn install'
             sh 'npm start'
           }
         }
