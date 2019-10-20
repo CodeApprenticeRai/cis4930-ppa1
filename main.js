@@ -57,7 +57,7 @@ app.post('/emailverifier', (req, res) => {
   var functionArguments = [ './EmailVerifier.py', email ];
 
   const { spawn } = require('child_process');
-  const pythonProgram = spawn('python', functionArguments );
+  const pythonProgram = spawn('python3', functionArguments );
 
   pythonProgram.stdout.on('data', (data) => {
     response_data = {
@@ -120,7 +120,7 @@ app.post('/retirement', (req, res) => {
     var functionArguments = [ './Retirement.py', req.body.starting_age, req.body.salary, req.body.percentage_saved, req.body.savings_goal ];
 
     const { spawn } = require('child_process');
-    const pythonProgram = spawn('python', functionArguments );
+    const pythonProgram = spawn('python3', functionArguments );
 
     pythonProgram.stdout.on('data', (data) => {
       response_data = {
