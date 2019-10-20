@@ -29,7 +29,6 @@ pipeline {
         stage('Build Web Server'){
           steps {
             sh 'apk add npm'
-            sh 'npm install -g npm@5.7.1'
             sh 'npm install'
             sh 'npm start'
           }
