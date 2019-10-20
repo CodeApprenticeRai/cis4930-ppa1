@@ -31,6 +31,7 @@ pipeline {
             sh 'apk add npm'
             sh 'apk add yarn'
             sh 'npm install -g npm@5.7.1'
+            sh 'npm install'
             sh 'npm start'
           }
         }
